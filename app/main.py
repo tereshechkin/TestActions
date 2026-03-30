@@ -3,7 +3,11 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 from fastapi import FastAPI, HTTPException, Query
 
-app = FastAPI(title="Test Time Backend")
+app = FastAPI(
+    title="Test Time Backend",
+    docs_url="/swagger/",
+    openapi_url="/openapi.json",
+)
 
 
 def _zone(name: str) -> ZoneInfo:
