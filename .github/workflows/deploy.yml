@@ -60,7 +60,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script_stop: true
           script: |
-            docker login ghcr.io -u "${{ secrets.GHCR_USERNAME }}" -p "${{ secrets.GHCR_TOKEN }}"
             docker pull "${{ needs.build_and_push.outputs.image_ref }}"
 
             docker stop fastapi-time-backend || true
