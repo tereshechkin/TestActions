@@ -69,5 +69,5 @@ jobs:
             docker run -d \
               --name fastapi-time-backend \
               --restart unless-stopped \
-              -p 8000:8000 \
+              -p 8001:8000 \
               "${{ needs.build_and_push.outputs.image_ref }}"
