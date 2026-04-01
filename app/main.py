@@ -3,11 +3,14 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 from fastapi import FastAPI, HTTPException, Query
 
+from app.loki import log_endpoint_calls
+
 app = FastAPI(
     title="Test Time Backend",
     docs_url="/swagger/",
     openapi_url="/openapi.json",
 )
+app.middleware("http")(log_endpoint_calls)
 
 
 def _zone(name: str) -> ZoneInfo:
